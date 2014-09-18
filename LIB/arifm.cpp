@@ -13,7 +13,7 @@ using std::ofstream;
 
 
 chislo::chislo()
-{//Конструктор по умолчанию
+{
 	this->razmer = 1;
 	this->znak = 0;
 	this->razr = new unsigned char[1];
@@ -22,7 +22,7 @@ chislo::chislo()
 
 chislo::chislo(const char* inputstr)
 {
-	//Конструктор от входной строки
+	
 	
 	int sLen = strlen(inputstr);
 	int sznak = 0;
@@ -33,8 +33,8 @@ chislo::chislo(const char* inputstr)
 	}
 
 	chislo res;
-	chislo pow_of_ten = 1;  // Для того,чтобы преобразовать char в число по основанию 256 необходимо каждый 
-								//Каждый символ превести к int значению и далее умножить на 10 в степени i, где i номер разряда.
+	chislo pow_of_ten = 1;  
+								
 
 	for (int i = sLen + sznak - 1; i >= sznak; i--)
 	{
@@ -49,7 +49,7 @@ chislo::chislo(const char* inputstr)
 }
 
 chislo::chislo(const chislo &right)
-{	//конструктор от chislo
+{	
 	this->razmer = right.razmer;
 	this->razr = new unsigned char[this->razmer];
 	this->znak = right.znak;
@@ -59,7 +59,7 @@ chislo::chislo(const chislo &right)
 
 chislo::chislo(int value)
 {   
-	//Конструктор от int-ового значения
+	
 
 	this->razr = new unsigned char[11]();
 	this->razmer = 0;
@@ -80,18 +80,18 @@ chislo::chislo(int value)
 }
 
 chislo::~chislo()
-{// Деструктор
+{
 	delete[] razr;
 }
 
 char* chislo::GetString()
 {
-	//Фукция получения строки в 10-й записи
+	
 	
 	chislo temp = *this; 
 	temp.znak = 0;
 	
-	std::vector<char> tempStr; // Вектор для хранения строки
+	std::vector<char> tempStr; 
 
 
 	while (temp != (int)0)
@@ -369,7 +369,7 @@ chislo chislo::delen(const chislo& a, const chislo& b, chislo &rem) const
 
 			
 			chislo tmp = delitel * Value;
-			tmp.sdvig(i - 1);	// умножение на 256^(i - 1)
+			tmp.sdvig(i - 1);	
 			
 			if (tmp > rem)
 				verh = Value;
@@ -377,7 +377,7 @@ chislo chislo::delen(const chislo& a, const chislo& b, chislo &rem) const
 				niz = Value;
 		}
 		chislo tmp = delitel * niz;
-		tmp.sdvig(i - 1); // умножение на 256 ^ (i - 1)
+		tmp.sdvig(i - 1); 
 		rem = rem - tmp;
 		res[i - 1] = niz;
 	}
