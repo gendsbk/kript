@@ -6,16 +6,15 @@ using std::cout;
 using namespace std;
 void printmenu()
 {
-	cout << "Long_ariph <A filelame> <operation> <B filelame> <result filename> [-b] [<mod filename>]" << endl << endl;
-	cout << "Ariph operations: + , -, * , / ,^, %"<<endl;
-	cout << "mod and binary key isn't required "<<endl;
+	cout << "Lariph file deistv file file [-b] [<mod filename>]" << endl << endl;
+
 }
 
 bool procoperation(chislo A, chislo B, chislo mod, char operation, chislo& res)
 {
 	if (mod < (int)0)
 	{
-		cout << "Negative mod!" << endl;
+		cout << "bad mod!" << endl;
 		return false;
 	}
 
@@ -52,7 +51,7 @@ bool procoperation(chislo A, chislo B, chislo mod, char operation, chislo& res)
 		}
 		catch (int err)
 		{
-			cout << "Division by zero" << endl;
+			cout << "del na 0" << endl;
 			return false;
 		}
 		break;
@@ -64,13 +63,13 @@ bool procoperation(chislo A, chislo B, chislo mod, char operation, chislo& res)
 		}
 		catch (int err)
 		{
-			cout << "Division by zero" << endl;
+			cout << "del na 0" << endl;
 			return false;
 		}
 		break;
 
 	default:
-		cout << "Wrong operation." << endl;
+		cout << "bad" << endl;
 		printmenu();
 		return false;
 	}
@@ -89,21 +88,21 @@ int main(int argc, char* argv[])
 {
 	if (argc < 5)
 	{
-		cout << "Don't enough arguments" << endl;
+		cout << "malo arg" << endl;
 		printmenu();
 		return -1;
 	}
 
 	if (argc > 7)
 	{
-		cout << "So many arguments" << endl;
+		cout << "mnogo arg" << endl;
 		printmenu();
 		return -2;
 	}
 
 	if (strlen(argv[2]) > 1)
 	{
-		cout << "unknown operation" << endl;
+		cout << "wrong operation" << endl;
 		printmenu();
 		return -3;
 	}
