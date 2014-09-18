@@ -3,22 +3,22 @@
 class chislo
 {
 private:
-	int razmer; // размер числа
-	unsigned char* razr; // знаки числа
-	int znak; //знак - 0 положительный , 1 - отрицательный
+	int razmer; 
+	unsigned char* razr; 
+	int znak; 
 
 public:
-	//Конструкторы
+	
 	chislo();
 	chislo(const char* inputstr);
 	chislo(const chislo& right);
 	chislo(int right);
 
-	~chislo(); // деструктор
+	~chislo(); 
 
-	char* GetString(); // функция получения строки в 10-й записи
+	char* GetString(); 
 
-	// Операции с файлами
+	
 	bool readText(const char* FileName);
 	bool writeText(const char* FileName);
 	bool ReadBin(const char* FileName);
@@ -28,7 +28,7 @@ public:
 
 
 
-	//Операторы сравнения
+
 	bool operator>(const chislo& b);
 	bool operator>=(const chislo& b);
 	bool operator<(const chislo& b);
@@ -42,7 +42,7 @@ public:
 
 
 
-	//Операторы инкриментирования и декриментирования
+	
 	chislo operator++();
 	chislo operator++(int);
 	chislo operator--();
@@ -52,7 +52,7 @@ public:
 
 
 
-	//Арифметические операторы
+	
 	chislo& operator=(const chislo& right);
 	chislo operator+(const chislo& right) const;
 	chislo operator-() const;
@@ -63,10 +63,10 @@ public:
 	chislo operator^(const chislo& right) const;
 
 private:
-	void zad_razmer(int razmer); // устанавливает размер
+	void zad_razmer(int razmer); 
 	unsigned char & operator[](int i);
 	unsigned char operator[](int i) const;
-	void dellnull(); // Название функции говорит само за себя
+	void dellnull(); 
 	int sravn(const chislo& b);
 	void sdvig(int s);
 
