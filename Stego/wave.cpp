@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -141,9 +143,9 @@ vector<unsigned char> readf(char* fileName)
 {
 	vector<unsigned char> input;
 	ifstream ifst(fileName, ios::binary);
-	if (ifst.fail())
-		return input;
-
+	if (ifst.fail()){
+		cout << "file not found" << endl;
+		exit(1);}
 	ifst.seekg(0, ios::end);
 	int size = ifst.tellg();
 	ifst.seekg(0, ios::beg);
