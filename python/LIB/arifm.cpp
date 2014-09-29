@@ -38,6 +38,11 @@ chislo::chislo(const char* inputstr)
 
 	for (int i = sLen + sznak - 1; i >= sznak; i--)
 	{
+		if (inputstr[i]<48||inputstr[i]>57)
+			{
+				printf("incorrect value\n");
+				exit(1);
+			}
 		int razryad = inputstr[i] - '0';
 		res = res + pow_of_ten * razryad;
 		pow_of_ten = pow_of_ten * 10;
@@ -352,7 +357,7 @@ chislo chislo::delen(const chislo& a, const chislo& b, chislo &rem) const
 	chislo delitel = b;
 	delitel.znak = 0;
 
-	if (delitel == chislo((int)0))
+/*	if (delitel == chislo((int)0))
 	{
 		throw divnull;
 	}
@@ -362,7 +367,12 @@ chislo chislo::delen(const chislo& a, const chislo& b, chislo &rem) const
 		rem = a;
 		return chislo((int)0);
 	}
+*/	if (delitel<1)
+	{
+		printf("delen na nol'\n");
+		exit(1);
 
+	}
 	chislo res;
 	res.zad_razmer(a.razmer - b.razmer + 1);
 
